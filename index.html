@@ -1,0 +1,1229 @@
+<!DOCTYPE html>
+<html lang="uz" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ELBIM GROUP — Rasmiy Veb-Sayti</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts: Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        navy: {
+                            950: '#060a17',
+                            900: '#0a1024',
+                            800: '#0f1838',
+                            700: '#1e293b',
+                            600: '#273549'
+                        },
+                        // Logo ranglari asosida yaratilgan ranglar tizimi:
+                        elbimGreen: {
+                            500: '#38a169',
+                            600: '#2f855a',
+                        },
+                        elbimBlue: {
+                            400: '#3399ff',
+                            500: '#0080ff',
+                            600: '#0066cc',
+                        },
+                        elbimDarkBlue: {
+                            500: '#0033b0',
+                            600: '#002685',
+                            700: '#001a5c'
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            color: #1e293b;
+            background-color: #ffffff;
+            overflow-x: hidden;
+        }
+        .btn-pill-white {
+            background-color: #ffffff;
+            color: #0033b0;
+            font-weight: 600;
+            padding: 0.625rem 1.5rem;
+            border-radius: 9999px;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        }
+        .btn-pill-white:hover {
+            background-color: #0080ff;
+            color: #ffffff;
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px -3px rgba(0, 128, 255, 0.4);
+        }
+        .btn-pill-dark {
+            background-color: #0033b0;
+            color: #ffffff;
+            font-weight: 600;
+            padding: 0.625rem 1.5rem;
+            border-radius: 9999px;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 10px -1px rgba(0, 51, 176, 0.25);
+        }
+        .btn-pill-dark:hover {
+            background-color: #002685;
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px -3px rgba(0, 51, 176, 0.4);
+        }
+        .btn-pill-outline {
+            border: 1.5px solid #0080ff;
+            color: #0080ff;
+            font-weight: 600;
+            padding: 0.5rem 1.25rem;
+            border-radius: 9999px;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: all 0.3s ease;
+        }
+        .btn-pill-outline:hover {
+            background-color: #0080ff;
+            color: #ffffff;
+            box-shadow: 0 6px 15px -3px rgba(0, 128, 255, 0.3);
+        }
+        .glass-nav {
+            background: rgba(10, 16, 36, 0.94);
+            backdrop-filter: blur(12px);
+        }
+        .card-hover {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .card-hover:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 20px 25px -5px rgba(0, 128, 255, 0.15), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+            border-color: #3399ff;
+        }
+        .modal-backdrop {
+            background-color: rgba(6, 10, 23, 0.9);
+            backdrop-filter: blur(8px);
+        }
+        .fade-transition {
+            transition: opacity 0.4s ease-in-out;
+        }
+    </style>
+</head>
+<body class="bg-white text-slate-800 antialiased selection:bg-elbimBlue-500 selection:text-white">
+
+    <header class="fixed top-0 left-0 right-0 z-50 glass-nav border-b border-slate-800 text-white transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+            <!-- Official ELBIM GROUP Logo -->
+            <a href="#" class="flex items-center gap-3 group py-2">
+                <img src="./img/elbim_group.png" style="width: 200px;" alt="ELBIM GROUP Logo">
+            </a>
+
+            <!-- Navigation Links -->
+            <nav class="hidden lg:flex items-center space-x-8 text-sm font-medium">
+                <a href="#asosiy" data-i18n="nav_home" class="text-white border-b-2 border-elbimBlue-500 pb-1 font-semibold transition-colors">Asosiy</a>
+                <a href="#yonalishlar" data-i18n="nav_directions" class="text-slate-300 hover:text-elbimBlue-400 transition-colors">Bizni yo'nalishlar</a>
+                <a href="#haqimizda" data-i18n="nav_about" class="text-slate-300 hover:text-elbimBlue-400 transition-colors">Biz haqimizda</a>
+                <a href="#boglanish" data-i18n="nav_contact" class="text-slate-300 hover:text-elbimBlue-400 transition-colors">Bog'lanish</a>
+            </nav>
+
+            <!-- Language Switcher & Contact Button -->
+            <div class="hidden sm:flex items-center space-x-4">
+                <div class="relative inline-block text-left">
+                    <button id="lang-menu-btn" type="button" class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-navy-800/80 hover:bg-navy-700 border border-slate-700 text-xs font-semibold text-slate-200 transition-all">
+                        <span id="current-lang-flag">🇺🇿</span>
+                        <span id="current-lang-code">UZB</span>
+                        <i class="fa-solid fa-chevron-down text-[10px] text-slate-400"></i>
+                    </button>
+                    <div id="lang-dropdown" class="hidden absolute right-0 mt-2 w-36 rounded-xl bg-navy-900 border border-slate-700 shadow-2xl z-50 py-1 text-xs">
+                        <button onclick="changeLanguage('uz')" class="w-full text-left px-4 py-2 hover:bg-elbimBlue-600/30 flex items-center justify-between text-slate-200 transition-colors">
+                            <span>🇺🇿 O'zbekcha</span>
+                            <span class="text-[10px] text-slate-400 font-mono">UZB</span>
+                        </button>
+                        <button onclick="changeLanguage('ru')" class="w-full text-left px-4 py-2 hover:bg-elbimBlue-600/30 flex items-center justify-between text-slate-200 transition-colors">
+                            <span>🇷🇺 Русский</span>
+                            <span class="text-[10px] text-slate-400 font-mono">RUS</span>
+                        </button>
+                        <button onclick="changeLanguage('en')" class="w-full text-left px-4 py-2 hover:bg-elbimBlue-600/30 flex items-center justify-between text-slate-200 transition-colors">
+                            <span>🇬🇧 English</span>
+                            <span class="text-[10px] text-slate-400 font-mono">ENG</span>
+                        </button>
+                        <button onclick="changeLanguage('tr')" class="w-full text-left px-4 py-2 hover:bg-elbimBlue-600/30 flex items-center justify-between text-slate-200 transition-colors">
+                            <span>🇹🇷 Türkçe</span>
+                            <span class="text-[10px] text-slate-400 font-mono">TURK</span>
+                        </button>
+                    </div>
+                </div>
+
+                <a href="#boglanish" class="btn-pill-white text-xs">
+                    <span data-i18n="nav_btn">Biz bilan bog'laning</span> <i class="fa-solid fa-arrow-right text-[10px]"></i>
+                </a>
+            </div>
+
+            <!-- Mobile Toggle -->
+            <div class="flex items-center gap-2 sm:hidden">
+                <button onclick="toggleLangDropdownMobile()" class="px-2.5 py-1 rounded-full bg-navy-800 text-xs font-semibold text-slate-200 border border-slate-700">
+                    <span id="mobile-current-lang">UZB</span>
+                </button>
+                <button id="mobile-menu-btn" class="text-slate-300 hover:text-elbimBlue-400 p-2 rounded-lg focus:outline-none">
+                    <i class="fa-solid fa-bars text-xl"></i>
+                </button>
+            </div>
+        </div>
+
+        <div id="mobile-lang-bar" class="hidden sm:hidden bg-navy-950 px-4 py-2 border-t border-slate-800 flex items-center justify-around text-xs">
+            <button onclick="changeLanguage('uz')" class="px-2 py-1 rounded bg-slate-800 text-slate-200">🇺🇿 UZB</button>
+            <button onclick="changeLanguage('ru')" class="px-2 py-1 rounded bg-slate-800 text-slate-200">🇷🇺 RUS</button>
+            <button onclick="changeLanguage('en')" class="px-2 py-1 rounded bg-slate-800 text-slate-200">🇬🇧 ENG</button>
+            <button onclick="changeLanguage('tr')" class="px-2 py-1 rounded bg-slate-800 text-slate-200">🇹🇷 TURK</button>
+        </div>
+
+        <div id="mobile-menu" class="hidden lg:hidden bg-navy-900 border-b border-slate-800 px-4 pt-2 pb-6 space-y-3">
+            <a href="#asosiy" data-i18n="nav_home" class="block text-elbimBlue-400 font-medium py-2 border-b border-slate-800">Asosiy</a>
+            <a href="#yonalishlar" data-i18n="nav_directions" class="block text-slate-300 hover:text-white font-medium py-2 border-b border-slate-800">Bizni yo'nalishlar</a>
+            <a href="#haqimizda" data-i18n="nav_about" class="block text-slate-300 hover:text-white font-medium py-2 border-b border-slate-800">Biz haqimizda</a>
+            <a href="#boglanish" data-i18n="nav_contact" class="block text-slate-300 hover:text-white font-medium py-2">Bog'lanish</a>
+            <a href="#boglanish" class="btn-pill-white w-full justify-center text-xs mt-4">
+                <span data-i18n="nav_btn">Biz bilan bog'laning</span> <i class="fa-solid fa-arrow-right text-[10px]"></i>
+            </a>
+        </div>
+    </header>
+
+    <section id="asosiy" class="relative pt-20 bg-navy-950 text-white min-h-[90vh] flex items-center overflow-hidden">
+        <div class="absolute inset-0 z-0">
+            <img id="hero-bg-img" src="./img/elbim_panel.jpg" alt="ELBIM Building" class="w-full h-full object-cover object-center opacity-40 fade-transition">
+            <div class="absolute inset-0 bg-gradient-to-r from-navy-950 via-navy-900/90 to-elbimDarkBlue-700/40"></div>
+        </div>
+
+        <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 w-full">
+            <div class="max-w-2xl space-y-6">
+                <div class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-elbimDarkBlue-500/60 text-blue-200 text-xs tracking-widest font-bold uppercase border border-elbimBlue-500/40 backdrop-blur-md">
+                    <span id="hero-badge">YANGI IMKONIYATLAR SARI</span>
+                </div>
+
+                <h1 id="hero-title" class="text-3xl sm:text-5xl lg:text-6xl font-black tracking-tight uppercase leading-tight text-white fade-transition">
+                    ELBIM ELEKTRONIK TASHKENT
+                </h1>
+
+                <p id="hero-subtitle" class="text-base sm:text-lg text-slate-300 font-normal leading-relaxed fade-transition">
+                    2008 yildan beri malakali xodimlari va keng ko'lamli yetkazib beruvchilar tarmog'i yordamida o'z mijozlariga 
+                    sifatli mahsulotlar yetkazib berish va sifatli xizmatlar ko'rsatish bilan shug'ullanib keladi.
+                </p>
+
+                <div class="pt-4">
+                    <a href="https://elbimelektronik.uz/" class="btn-pill-white text-sm sm:text-base px-8 py-3.5">
+                        <span data-i18n="hero_more">Batafsil ma'lumot</span> <i class="fa-solid fa-arrow-right text-xs"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <button id="hero-prev" class="absolute left-4 sm:left-8 top-1/2 -translate-y-1/2 z-20 w-12 h-12 rounded-full border border-slate-700 bg-navy-900/80 hover:bg-elbimBlue-500 hover:border-elbimBlue-400 text-white flex items-center justify-center transition-all shadow-lg">
+            <i class="fa-solid fa-chevron-left"></i>
+        </button>
+        <button id="hero-next" class="absolute right-4 sm:right-8 top-1/2 -translate-y-1/2 z-20 w-12 h-12 rounded-full border border-slate-700 bg-navy-900/80 hover:bg-elbimBlue-500 hover:border-elbimBlue-400 text-white flex items-center justify-center transition-all shadow-lg">
+            <i class="fa-solid fa-chevron-right"></i>
+        </button>
+
+        <div class="absolute bottom-8 left-1/2 -translate-x-1/2 z-20 flex items-center space-x-2">
+            <button class="hero-dot w-3 h-3 rounded-full bg-elbimBlue-500 transition-all shadow-lg shadow-elbimBlue-500/50" onclick="setHeroSlide(0)"></button>
+            <button class="hero-dot w-2.5 h-2.5 rounded-full bg-slate-600 hover:bg-slate-300 transition-all" onclick="setHeroSlide(1)"></button>
+            <button class="hero-dot w-2.5 h-2.5 rounded-full bg-slate-600 hover:bg-slate-300 transition-all" onclick="setHeroSlide(2)"></button>
+        </div>
+    </section>
+
+    <section id="yonalishlar" class="py-20 bg-slate-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row md:items-end justify-between mb-12">
+                <div>
+                    <span data-i18n="dir_badge" class="text-xs font-bold uppercase tracking-widest text-elbimGreen-500">Bizning yo'nalishlar</span>
+                    <h2 data-i18n="dir_title" class="text-3xl sm:text-4xl font-extrabold text-slate-900 mt-2">Bizni yo'nalishlar</h2>
+                    <p data-i18n="dir_sub" class="text-slate-600 mt-2 max-w-xl text-sm sm:text-base">
+                        Turli sohalarda loyihalarimiz orqali insonlar hayotini yaxshilashga hissa qo'shamiz.
+                    </p>
+                </div>
+                <a href="#yonalishlar" class="inline-flex items-center gap-2 text-sm font-bold text-elbimBlue-600 hover:text-elbimDarkBlue-500 mt-4 md:mt-0 group transition-colors">
+                    <span data-i18n="dir_all">Barcha yo'nalishlar</span> <i class="fa-solid fa-arrow-right text-xs group-hover:translate-x-1 transition-transform"></i>
+                </a>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Direction Card 1: Green Accent (Textile) -->
+                <div class="bg-white rounded-2xl overflow-hidden shadow-sm border border-slate-200/80 card-hover flex flex-col justify-between">
+                    <div>
+                        <div class="relative h-56 overflow-hidden">
+                            <img src="./img/elbim_panel.jpg" alt="ELBIM ELEKTRONIK" class="w-full h-full object-cover">
+                            <div class="absolute bottom-4 left-4 bg-elbimGreen-500 text-white p-3 rounded-xl shadow-lg">
+                                <i class="fa-solid fa-microchip text-xl"></i>
+
+                            </div>
+                        </div>
+                        <div class="p-6">
+                            <h3 data-i18n="card_1_title" class="text-xl font-bold text-slate-900 mb-2">ELBIM ELEKTRONIK</h3>
+                            <p data-i18n="card_1_desc" class="text-slate-600 text-sm leading-relaxed">
+                                Bizning to'liq jihozlangan xizmat bo'limimiz elektron jihozlarni ta'mirlash uchun
+                                 eng yangi texnologik uskunalar va tajribali muhandislardan foydalangan holda xizmatlarni taqdim etadi.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="px-6 pb-6">
+                        <a href="https://elbimelektronik.uz/" class="btn-pill-dark text-xs w-full justify-center">
+                            <span data-i18n="card_btn">Saytga o'tish</span> <i class="fa-solid fa-arrow-right text-xs"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Direction Card 2: Light Blue Accent (Electronics) -->
+                <div class="bg-white rounded-2xl overflow-hidden shadow-sm border border-slate-200/80 card-hover flex flex-col justify-between">
+                    <div>
+                        <div class="relative h-56 overflow-hidden">
+                            <img src="./img/matral_logo2.jpg" alt="Elektronika & Savdo" class="w-full h-full object-cover">
+                            <div class="absolute bottom-4 left-4 bg-elbimBlue-500 text-white p-3 rounded-xl shadow-lg">
+                                
+                                <i class="fa-solid fa-shirt text-xl"></i>
+                            </div>
+                        </div>
+                        <div class="p-6">
+                            <h3 data-i18n="card_2_title" class="text-xl font-bold text-slate-900 mb-2">ELBIM TEXTILE TECHNOLOGY</h3>
+                            <p data-i18n="card_2_desc" class="text-slate-600 text-sm leading-relaxed">
+                                Sifatli elektronika mahsulotlari va ishonchli xizmat.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="px-6 pb-6">
+                        <a href="#boglanish" class="btn-pill-dark text-xs w-full justify-center">
+                            <span data-i18n="card_btn">Saytga o'tish</span> <i class="fa-solid fa-arrow-right text-xs"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Direction Card 3: Dark Blue Accent (Education & IT) -->
+                <div class="bg-white rounded-2xl overflow-hidden shadow-sm border border-slate-200/80 card-hover flex flex-col justify-between">
+                    <div>
+                        <div class="relative h-56 overflow-hidden">
+                            <img src="./img/group.png" alt="Ta'lim & IT" class="w-full h-full object-cover">
+                            <div class="absolute bottom-4 left-4 bg-elbimDarkBlue-500 text-white p-3 rounded-xl shadow-lg">
+                                <i class="fa-solid fa-users text-lg"></i>
+                            </div>
+                        </div>
+                        <div class="p-6">
+                            <h3 data-i18n="card_3_title" class="text-xl font-bold text-slate-900 mb-2">ELBIM GROUP</h3>
+                            <p data-i18n="card_3_desc" class="text-slate-600 text-sm leading-relaxed">
+                                Yangi avlod uchun zamonaviy ta'lim va IT yechimlari.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="px-6 pb-6">
+                        <a href="#boglanish" class="btn-pill-dark text-xs w-full justify-center">
+                            <span data-i18n="card_btn">Saytga o'tish</span> <i class="fa-solid fa-arrow-right text-xs"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="haqimizda" class="py-20 bg-navy-900 text-white border-t border-b border-navy-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                
+                <div class="lg:col-span-5 space-y-6">
+                    <span data-i18n="about_badge" class="text-xs font-bold tracking-widest text-elbimBlue-400 uppercase">Biz haqimizda</span>
+                    <h2 data-i18n="about_title" class="text-2xl sm:text-4xl font-black leading-tight text-white">
+                        ELBIM GROUP – Ishonchli hamkor, barqaror rivojlanish sari
+                    </h2>
+                    <p data-i18n="about_desc" class="text-slate-300 text-sm sm:text-base leading-relaxed">
+                        ELBIM GROUP – bu bir nechta yo'nalishlarda faoliyat yurituvchi, sifat va ishonchni ustuvor qilgan zamonaviy kompaniya. Bizning maqsadimiz – jamiyat uchun qadriyat yaratish, yangi imkoniyatlar ochish va barqaror kelajak qurish.
+                    </p>
+                    <div>
+                        <a href="#qisqacha-haqimizda" class="btn-pill-white text-xs sm:text-sm">
+                            <span data-i18n="hero_more">Batafsil ma'lumot</span> <i class="fa-solid fa-arrow-right text-xs"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="lg:col-span-7">
+                    <div class="grid grid-cols-1 sm:grid-cols-4 gap-4">
+                        <div class="sm:col-span-3 relative rounded-2xl overflow-hidden bg-slate-800 border border-elbimBlue-500/30 aspect-video group shadow-xl">
+                            <img id="gallery-main-img" src="./img/elbim_panel.jpg" alt="Main Gallery View" class="w-full h-full object-cover fade-transition">
+                            
+                            <button onclick="openImageModal(document.getElementById('gallery-main-img').src)" class="absolute inset-0 flex items-center justify-center bg-navy-950/40 group-hover:bg-navy-950/20 transition-all">
+                                <div class="w-14 h-14 rounded-full bg-elbimBlue-500 text-white flex items-center justify-center shadow-2xl transform group-hover:scale-110 transition-transform">
+                                    <i class="fa-solid fa-magnifying-glass-plus text-xl"></i>
+                                </div>
+                            </button>
+
+                            <button onclick="changeGallerySlide(-1)" class="absolute left-3 top-1/2 -translate-y-1/2 w-9 h-9 rounded-full bg-navy-950/70 text-white flex items-center justify-center text-xs hover:bg-elbimBlue-500 transition-all">
+                                <i class="fa-solid fa-chevron-left"></i>
+                            </button>
+                            <button onclick="changeGallerySlide(1)" class="absolute right-3 top-1/2 -translate-y-1/2 w-9 h-9 rounded-full bg-navy-950/70 text-white flex items-center justify-center text-xs hover:bg-elbimBlue-500 transition-all">
+                                <i class="fa-solid fa-chevron-right"></i>
+                            </button>
+                        </div>
+
+                        <div class="sm:col-span-1 flex sm:flex-col gap-3 justify-between">
+                            <div onclick="setGallerySlide(0)" class="gallery-thumb rounded-xl overflow-hidden border-2 border-elbimBlue-500 cursor-pointer h-16 sm:h-20 w-full transition-all">
+                                <img src="https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&q=80&w=300" class="w-full h-full object-cover">
+                            </div>
+                            <div onclick="setGallerySlide(1)" class="gallery-thumb rounded-xl overflow-hidden border-2 border-transparent opacity-60 hover:opacity-100 cursor-pointer h-16 sm:h-20 w-full transition-all">
+                                <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&q=80&w=300" class="w-full h-full object-cover">
+                            </div>
+                            <div onclick="setGallerySlide(2)" class="gallery-thumb rounded-xl overflow-hidden border-2 border-transparent opacity-60 hover:opacity-100 cursor-pointer h-16 sm:h-20 w-full transition-all">
+                                <img src="./img/elbim_panel.jpg" class="w-full h-full object-cover">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="flex items-center justify-center space-x-2 mt-4">
+                        <span class="gallery-dot w-2.5 h-2.5 rounded-full bg-elbimBlue-500 transition-all cursor-pointer" onclick="setGallerySlide(0)"></span>
+                        <span class="gallery-dot w-2 h-2 rounded-full bg-slate-600 transition-all cursor-pointer" onclick="setGallerySlide(1)"></span>
+                        <span class="gallery-dot w-2 h-2 rounded-full bg-slate-600 transition-all cursor-pointer" onclick="setGallerySlide(2)"></span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Stats Counter Grid -->
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-8 mt-20 pt-12 border-t border-slate-800 text-center">
+                <div>
+                    <div class="text-4xl sm:text-5xl font-black text-white tracking-tight">3+</div>
+                    <div data-i18n="stat_1" class="text-elbimBlue-400 text-sm mt-2 font-medium">Yo'nalish</div>
+                </div>
+                <div>
+                    <div class="text-4xl sm:text-5xl font-black text-white tracking-tight">100+</div>
+                    <div data-i18n="stat_2" class="text-elbimBlue-400 text-sm mt-2 font-medium">Hamkorlar</div>
+                </div>
+                <div>
+                    <div class="text-4xl sm:text-5xl font-black text-white tracking-tight">1000+</div>
+                    <div data-i18n="stat_3" class="text-elbimBlue-400 text-sm mt-2 font-medium">Mamnun mijozlar</div>
+                </div>
+                <div>
+                    <div class="text-4xl sm:text-5xl font-black text-white tracking-tight">5+</div>
+                    <div data-i18n="stat_4" class="text-elbimBlue-400 text-sm mt-2 font-medium">Yillik tajriba</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="qisqacha-haqimizda" class="py-20 bg-slate-100">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                
+                <div class="lg:col-span-6 space-y-6">
+                    <span data-i18n="brief_badge" class="text-xs font-bold tracking-widest text-elbimGreen-500 uppercase">Kichik qadamlar – katta natijalar</span>
+                    <h2 data-i18n="brief_title" class="text-3xl sm:text-4xl font-extrabold text-slate-900">Biz haqimizda qisqacha</h2>
+                    
+                    <ul class="space-y-4 pt-2">
+                        <li class="flex items-center gap-3 text-slate-800 font-medium">
+                            <span class="w-6 h-6 rounded-full bg-emerald-100 text-elbimGreen-500 flex items-center justify-center text-xs flex-shrink-0">
+                                <i class="fa-solid fa-check"></i>
+                            </span>
+                            <span data-i18n="check_1">Sifatli xizmat va mahsulotlar</span>
+                        </li>
+                        <li class="flex items-center gap-3 text-slate-800 font-medium">
+                            <span class="w-6 h-6 rounded-full bg-emerald-100 text-elbimGreen-500 flex items-center justify-center text-xs flex-shrink-0">
+                                <i class="fa-solid fa-check"></i>
+                            </span>
+                            <span data-i18n="check_2">Malakali va tajribali jamoa</span>
+                        </li>
+                        <li class="flex items-center gap-3 text-slate-800 font-medium">
+                            <span class="w-6 h-6 rounded-full bg-emerald-100 text-elbimGreen-500 flex items-center justify-center text-xs flex-shrink-0">
+                                <i class="fa-solid fa-check"></i>
+                            </span>
+                            <span data-i18n="check_3">Zamonaviy texnologiyalar</span>
+                        </li>
+                        <li class="flex items-center gap-3 text-slate-800 font-medium">
+                            <span class="w-6 h-6 rounded-full bg-emerald-100 text-elbimGreen-500 flex items-center justify-center text-xs flex-shrink-0">
+                                <i class="fa-solid fa-check"></i>
+                            </span>
+                            <span data-i18n="check_4">Ijtimoiy mas'uliyat va barqaror rivojlanish</span>
+                        </li>
+                    </ul>
+
+                    <!-- <div class="pt-4">
+                        <a href="#boglanish" class="btn-pill-dark text-xs sm:text-sm">
+                            <span data-i18n="read_more">Batafsil o'qish</span> <i class="fa-solid fa-arrow-right text-xs"></i>
+                        </a>
+                    </div> -->
+                </div>
+
+                <div class="lg:col-span-6 grid grid-cols-1 sm:grid-cols-3 gap-4 items-center">
+                    <div class="sm:col-span-2 relative rounded-2xl overflow-hidden shadow-lg border border-slate-200 aspect-video group">
+                        <img id="about-carousel-img" src="./img/elbim_panel.jpg" class="w-full h-full object-cover fade-transition">
+                        
+                        <button onclick="openImageModal(document.getElementById('about-carousel-img').src)" class="absolute inset-0 flex items-center justify-center bg-navy-950/20 group-hover:bg-navy-950/40 transition-all">
+                            <div class="w-12 h-12 rounded-full bg-elbimBlue-500 text-white flex items-center justify-center shadow-xl transform group-hover:scale-110 transition-transform">
+                                <i class="fa-solid fa-expand text-base"></i>
+                            </div>
+                        </button>
+
+                        <button onclick="changeAboutSlide(-1)" class="absolute left-2 top-1/2 -translate-y-1/2 w-8 h-8 rounded-full bg-navy-950/60 text-white flex items-center justify-center text-xs hover:bg-elbimBlue-500 transition-colors">
+                            <i class="fa-solid fa-chevron-left"></i>
+                        </button>
+                        <button onclick="changeAboutSlide(1)" class="absolute right-2 top-1/2 -translate-y-1/2 w-8 h-8 rounded-full bg-navy-950/60 text-white flex items-center justify-center text-xs hover:bg-elbimBlue-500 transition-colors">
+                            <i class="fa-solid fa-chevron-right"></i>
+                        </button>
+                    </div>
+
+                    <!-- <div class="sm:col-span-1 bg-white p-6 rounded-2xl shadow-sm border border-slate-200 text-center flex flex-col justify-center h-full min-h-[160px]">
+                        <p data-i18n="quote_1" class="text-xs font-bold text-slate-800 leading-snug">"Birga kuchi kelajak sari"</p>
+                        <div class="w-8 h-0.5 bg-elbimBlue-500 mx-auto mt-4"></div>
+                    </div> -->
+
+                    <div class="sm:col-span-3 flex justify-center space-x-2 mt-2">
+                        <span class="about-dot w-2.5 h-2.5 rounded-full bg-elbimBlue-500 transition-all cursor-pointer" onclick="setAboutSlide(0)"></span>
+                        <span class="about-dot w-2 h-2 rounded-full bg-slate-300 transition-all cursor-pointer" onclick="setAboutSlide(1)"></span>
+                        <span class="about-dot w-2 h-2 rounded-full bg-slate-300 transition-all cursor-pointer" onclick="setAboutSlide(2)"></span>
+                        <span class="about-dot w-2 h-2 rounded-full bg-slate-300 transition-all cursor-pointer" onclick="setAboutSlide(3)"></span>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <span data-i18n="partner_badge" class="text-xs font-bold uppercase tracking-widest text-elbimBlue-500">Bizning hamkorlar</span>
+            <h2 data-i18n="partner_title" class="text-3xl sm:text-4xl font-extrabold text-slate-900 mt-2">Biz bilan hamkorlik qilayotganlar</h2>
+            <p data-i18n="partner_sub" class="text-slate-600 mt-2 text-sm sm:text-base max-w-2xl mx-auto">
+                Biz ishonch va sifat asosida ko'plab yetakchi brendlar bilan hamkorlik qilamiz.
+            </p>
+
+            <div id="partner-logos-container" class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4 sm:gap-6 mt-12 transition-all duration-500">
+            </div>
+
+            <div class="flex items-center justify-center space-x-2 mt-8">
+                <span class="partner-dot w-2.5 h-2.5 rounded-full bg-elbimBlue-500 transition-all cursor-pointer" onclick="setPartnerSlide(0)"></span>
+                <span class="partner-dot w-2 h-2 rounded-full bg-slate-300 transition-all cursor-pointer" onclick="setPartnerSlide(1)"></span>
+                <span class="partner-dot w-2 h-2 rounded-full bg-slate-300 transition-all cursor-pointer" onclick="setPartnerSlide(2)"></span>
+            </div>
+        </div>
+    </section>
+
+    <section id="boglanish" class="py-20 bg-slate-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row md:items-end justify-between mb-12">
+                <div>
+                    <span data-i18n="contact_badge" class="text-xs font-bold uppercase tracking-widest text-elbimBlue-500">Bog'lanish</span>
+                    <h2 data-i18n="contact_title" class="text-3xl sm:text-4xl font-extrabold text-slate-900 mt-2">Biz bilan bog'laning</h2>
+                    <p data-i18n="contact_sub" class="text-slate-600 mt-2 text-sm sm:text-base">Savollaringiz bormi? Biz har doim aloqadamiz!</p>
+                </div>
+                <div class="bg-white p-4 rounded-2xl border border-slate-200 shadow-sm mt-6 md:mt-0 flex items-center gap-4">
+                    <span data-i18n="direct_write" class="text-xs font-semibold text-slate-500">Yoki to'g'ridan-to'g'ri yozing:</span>
+                    <a href="https://t.me" target="_blank" class="btn-pill-dark text-xs py-2 px-4 bg-sky-500 hover:bg-sky-600 border-none">
+                        <i class="fa-brands fa-telegram text-sm"></i> Telegram <i class="fa-solid fa-arrow-right text-[10px]"></i>
+                    </a>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <!-- Card 1 -->
+                <div class="bg-white p-6 rounded-2xl border border-slate-200/80 shadow-sm flex flex-col justify-between card-hover">
+                    <div>
+                        <div class="flex items-center gap-3 mb-6">
+                            <div class="p-3 bg-emerald-50 rounded-xl text-elbimGreen-500">
+                                 <i class="fa-solid fa-microchip text-lg"></i>
+                            </div>
+                            <h3 data-i18n="card_1_title" class="font-bold text-slate-900 text-lg">ELBIM ELEKTRONIK</h3>
+                        </div>
+                        <div class="space-y-3 text-sm text-slate-600 mb-8">
+                            <div class="flex items-center gap-2">
+                                <i class="fa-solid fa-phone text-elbimGreen-500 w-4"></i>
+                                <span>+998 93 555 13 54</span>
+                            </div>
+                            <div class="flex items-center gap-2">
+                                <i class="fa-brands fa-telegram text-sky-500 w-4"></i>
+                                <span>@elbim_elektronik_uz</span>
+                            </div>
+                        </div>
+                    </div>
+                    <a href="https://t.me" target="_blank" class="btn-pill-outline text-xs justify-center w-full">
+                        <span data-i18n="contact_btn">Bog'lanish</span> <i class="fa-solid fa-arrow-right text-[10px]"></i>
+                    </a>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="bg-white p-6 rounded-2xl border border-slate-200/80 shadow-sm flex flex-col justify-between card-hover">
+                    <div>
+                        <div class="flex items-center gap-3 mb-6">
+                            <div class="p-3 bg-blue-50 rounded-xl text-elbimBlue-500">
+                               
+                                <i class="fa-solid fa-scissors text-elbimBlue-500 w-4"></i>
+                            </div>
+                            <h3 data-i18n="card_2_title" class="font-bold text-slate-900 text-lg">ELBIM TEXTILE TECHNOLOGY</h3>
+                        </div>
+                        <div class="space-y-3 text-sm text-slate-600 mb-8">
+                            <div class="flex items-center gap-2">
+                            <i class="fa-solid fa-phone text-elbimBlue-500 w-4"></i>
+                                <span>+998 50 333 98 70</span>
+                            </div>
+                            <div class="flex items-center gap-2">
+                                <i class="fa-brands fa-telegram text-sky-500 w-4"></i>
+                                <span>---</span>
+                            </div>
+                        </div>
+                    </div>
+                    <a href="https://t.me" target="_blank" class="btn-pill-outline text-xs justify-center w-full">
+                        <span data-i18n="contact_btn">Bog'lanish</span> <i class="fa-solid fa-arrow-right text-[10px]"></i>
+                    </a>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="bg-white p-6 rounded-2xl border border-slate-200/80 shadow-sm flex flex-col justify-between card-hover">
+                    <div>
+                        <div class="flex items-center gap-3 mb-6">
+                            <div class="p-3 bg-indigo-50 rounded-xl text-elbimDarkBlue-500">
+                           <i class="fa-solid fa-user-group text-lg"></i>
+                            </div>
+                            <h3 data-i18n="card_3_title" class="font-bold text-slate-900 text-lg">ELBIM GROUP</h3>
+                        </div>
+                        <div class="space-y-3 text-sm text-slate-600 mb-8">
+                            <div class="flex items-center gap-2">
+                                <i class="fa-solid fa-phone text-elbimDarkBlue-500 w-4"></i>
+                                <span>+998 93 555 13 50</span>
+                            </div>
+                            <div class="flex items-center gap-2">
+                                <i class="fa-brands fa-telegram text-sky-500 w-4"></i>
+                                <span>@elbim_education</span>
+                            </div>
+                        </div>
+                    </div>
+                    <a href="https://t.me" target="_blank" class="btn-pill-outline text-xs justify-center w-full">
+                        <span data-i18n="contact_btn">Bog'lanish</span> <i class="fa-solid fa-arrow-right text-[10px]"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="relative py-20 bg-navy-950 text-white overflow-hidden">
+        <div class="absolute inset-0 z-0">
+            <img src="https://images.unsplash.com/photo-1541888946425-d0fbb186a5b3?auto=format&fit=crop&q=80&w=1600" class="w-full h-full object-cover opacity-20">
+            <div class="absolute inset-0 bg-gradient-to-r from-navy-950 via-navy-900/90 to-elbimDarkBlue-700/40"></div>
+        </div>
+
+        <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+                <div class="lg:col-span-8 space-y-6">
+                    <span data-i18n="cta_badge" class="text-xs font-bold uppercase tracking-widest text-elbimBlue-400">Kelajakni birga quramiz</span>
+                    <h2 data-i18n="cta_title" class="text-3xl sm:text-5xl font-black tracking-tight text-white">
+                        Siz bilan yangi imkoniyatlar sari!
+                    </h2>
+                    <div>
+                        <a href="#boglanish" class="btn-pill-white text-xs sm:text-sm px-8 py-3.5">
+                            <span data-i18n="nav_btn">Biz bilan bog'laning</span> <i class="fa-solid fa-arrow-right text-xs"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="lg:col-span-4 border-l border-elbimBlue-500/30 pl-6 lg:pl-8">
+                    <p data-i18n="cta_quote" class="text-sm font-semibold text-slate-300 leading-relaxed">
+                        "Yaxshi qarorlar – katta yutuqlar boshlanishi."
+                    </p>
+                    <div class="w-8 h-0.5 bg-elbimBlue-500 mt-4"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-navy-950 text-white border-t border-slate-800/80 pt-16 pb-8 text-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-10 pb-12">
+                <div class="space-y-4">
+                    <a href="#" class="inline-block">
+                        <img src="./img/elbim_group.png" style="width: 180px;" alt="ELBIM GROUP Logo">
+                    </a>
+                    <p data-i18n="footer_motto" class="text-slate-400 text-xs leading-relaxed">
+                        Sifat. Ishonch. Rivojlanish.<br>Har doim siz bilan.
+                    </p>
+                </div>
+
+                <div>
+                    <h4 data-i18n="footer_quick_links" class="font-bold text-white mb-4 text-xs uppercase tracking-wider">Tezkor havolalar</h4>
+                    <ul class="space-y-2.5 text-xs text-slate-400">
+                        <li><a href="#asosiy" data-i18n="nav_home" class="hover:text-elbimBlue-400 transition-colors">Asosiy</a></li>
+                        <li><a href="#yonalishlar" data-i18n="nav_directions" class="hover:text-elbimBlue-400 transition-colors">Bizni yo'nalishlar</a></li>
+                        <li><a href="#haqimizda" data-i18n="nav_about" class="hover:text-elbimBlue-400 transition-colors">Biz haqimizda</a></li>
+                        <li><a href="#boglanish" data-i18n="nav_contact" class="hover:text-elbimBlue-400 transition-colors">Bog'lanish</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 data-i18n="footer_social" class="font-bold text-white mb-4 text-xs uppercase tracking-wider">Ijtimoiy tarmoqlar</h4>
+                    <div class="flex items-center space-x-3">
+                        <a href="#" class="w-9 h-9 rounded-full bg-navy-800 border border-slate-700/50 hover:bg-elbimBlue-500 hover:border-elbimBlue-400 text-white flex items-center justify-center transition-all">
+                            <i class="fa-brands fa-telegram text-sm"></i>
+                        </a>
+                        <a href="#" class="w-9 h-9 rounded-full bg-navy-800 border border-slate-700/50 hover:bg-elbimBlue-500 hover:border-elbimBlue-400 text-white flex items-center justify-center transition-all">
+                            <i class="fa-brands fa-instagram text-sm"></i>
+                        </a>
+                        <a href="#" class="w-9 h-9 rounded-full bg-navy-800 border border-slate-700/50 hover:bg-elbimBlue-500 hover:border-elbimBlue-400 text-white flex items-center justify-center transition-all">
+                            <i class="fa-brands fa-youtube text-sm"></i>
+                        </a>
+                        <a href="#" class="w-9 h-9 rounded-full bg-navy-800 border border-slate-700/50 hover:bg-elbimBlue-500 hover:border-elbimBlue-400 text-white flex items-center justify-center transition-all">
+                            <i class="fa-brands fa-linkedin-in text-sm"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div>
+                    <h4 data-i18n="footer_address_title" class="font-bold text-white mb-4 text-xs uppercase tracking-wider">Manzil</h4>
+                    <ul class="space-y-2.5 text-xs text-slate-400">
+                        <li data-i18n="footer_address">Toshkent, O'zbekiston</li>
+                        <li>info@elbimgroup.com</li>
+                        <li>+998 90 123 45 67</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="border-t border-slate-800/80 pt-8 flex flex-col sm:flex-row items-center justify-between text-[11px] text-slate-500 gap-4">
+                <p data-i18n="footer_copyright">© 2026 ELBIM GROUP. Barcha huquqlar himoyalangan.</p>
+                <div class="flex items-center space-x-4">
+                    <a href="#" data-i18n="privacy_policy" class="hover:text-elbimBlue-400 transition-colors">Maxfiylik siyosati</a>
+                    <span>|</span>
+                    <a href="#" data-i18n="terms_use" class="hover:text-elbimBlue-400 transition-colors">Foydalanish shartlari</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <div id="image-modal" class="fixed inset-0 z-50 hidden modal-backdrop flex items-center justify-center p-4">
+        <div class="relative w-full max-w-5xl max-h-[90vh] bg-transparent flex items-center justify-center">
+            <button onclick="closeImageModal()" class="absolute -top-12 right-0 text-white hover:text-elbimBlue-400 text-3xl w-10 h-10 flex items-center justify-center focus:outline-none">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+            <img id="modal-img-element" src="" class="max-w-full max-h-[85vh] rounded-2xl object-contain shadow-2xl border border-elbimBlue-500/40">
+        </div>
+    </div>
+
+    <script>
+        const i18nData = {
+            uz: {
+                flag: "🇺🇿",
+                code: "UZB",
+                nav_home: "Asosiy",
+                nav_directions: "Bizni yo'nalishlar",
+                nav_about: "Biz haqimizda",
+                nav_contact: "Bog'lanish",
+                nav_btn: "Biz bilan bog'laning",
+                hero_more: "Batafsil ma'lumot",
+                dir_badge: "Bizning yo'nalishlar",
+                dir_title: "Bizni yo'nalishlar",
+                dir_sub: "Turli sohalarda loyihalarimiz orqali insonlar hayotini yaxshilashga hissa qo'shamiz.",
+                dir_all: "Barcha yo'nalishlar",
+                card_1_title: "ELBIM ELEKTRONIK",
+                card_1_desc: "Sifatli elektronika mahsulotlari va ishonchli xizmat.",
+                card_2_title: "ELBIM TEXTILE TECHNOLOGY",
+                card_2_desc: "To'qimachilik mahsulotlari, zamonaviy texnologiyalar va yuqori sifat.",
+                card_3_title: "ELBIM GROUP",
+                card_3_desc: "Guruh tarkibidagi yo‘nalishlar orqali savdo, tekstil, texnologik yechimlar va boshqa biznes xizmatlarini rivojlantirishga e’tibor qaratiladi.",
+                card_btn: "Saytga o'tish",
+                about_badge: "Biz haqimizda",
+                about_title: "ELBIM GROUP – Ishonchli hamkor, barqaror rivojlanish sari",
+                about_desc: "ELBIM GROUP – bu bir nechta yo'nalishlarda faoliyat yurituvchi, sifat va ishonchni ustuvor qilgan zamonaviy kompaniya. Bizning maqsadimiz – jamiyat uchun qadriyat yaratish, yangi imkoniyatlar ochish va barqaror kelajak qurish.",
+                stat_1: "Yo'nalish",
+                stat_2: "Hamkorlar",
+                stat_3: "Mamnun mijozlar",
+                stat_4: "Yillik tajriba",
+                brief_badge: "Kichik qadamlar – katta natijalar",
+                brief_title: "Biz haqimizda qisqacha",
+                check_1: "Sifatli xizmat va mahsulotlar",
+                check_2: "Malakali va tajribali jamoa",
+                check_3: "Zamonaviy texnologiyalar",
+                check_4: "Ijtimoiy mas'uliyat va barqaror rivojlanish",
+                read_more: "Batafsil o'qish",
+                quote_1: '"Birga kuchi kelajak sari"',
+                partner_badge: "Bizning hamkorlar",
+                partner_title: "Biz bilan hamkorlik qilayotganlar",
+                partner_sub: "Biz ishonch va sifat asosida ko'plab yetakchi brendlar bilan hamkorlik qilamiz.",
+                contact_badge: "Bog'lanish",
+                contact_title: "Biz bilan bog'laning",
+                contact_sub: "Savollaringiz bormi? Biz har doim aloqadamiz!",
+                direct_write: "Yoki to'g'ridan-to'g'ri yozing:",
+                contact_btn: "Bog'lanish",
+                cta_badge: "Kelajakni birga quramiz",
+                cta_title: "Siz bilan yangi imkoniyatlar sari!",
+                cta_quote: '"Yaxshi qarorlar – katta yutuqlar boshlanishi."',
+                footer_motto: "Sifat. Ishonch. Rivojlanish.<br>Har doim siz bilan.",
+                footer_quick_links: "Tezkor havolalar",
+                footer_social: "Ijtimoiy tarmoqlar",
+                footer_address_title: "Manzil",
+                footer_address: "Toshkent, O'zbekiston",
+                footer_copyright: "© 2026 ELBIM GROUP. Barcha huquqlar himoyalangan.",
+                privacy_policy: "Maxfiylik siyosati",
+                terms_use: "Foydalanish shartlari"
+            },
+            ru: {
+                flag: "🇷🇺",
+                code: "RUS",
+                nav_home: "Главная",
+                nav_directions: "Направления",
+                nav_about: "О нас",
+                nav_contact: "Контакты",
+                nav_btn: "Связаться с нами",
+                hero_more: "Подробнее",
+                dir_badge: "Наши направления",
+                dir_title: "Направления деятельности",
+                dir_sub: "Мы улучшаем жизнь людей с помощью проектов в различных сферах.",
+                dir_all: "Все направления",
+                card_1_title: "Текстиль и Производство",
+                card_1_desc: "Текстильная продукция, современные технологии и высокое качество.",
+                card_2_title: "Электроника и Торговля",
+                card_2_desc: "Качественная электронная продукция и надежный сервис.",
+                card_3_title: "Образование и IT",
+                card_3_desc: "Современное образование и IT-решения для нового поколения.",
+                card_btn: "Перейти на сайт",
+                about_badge: "О нас",
+                about_title: "ELBIM GROUP – Надежный партнер на пути к устойчивому развитию",
+                about_desc: "ELBIM GROUP – современная компания, работающая в нескольких направлениях и ставящая в приоритет качество и доверие. Наша цель – создавать ценность, открывать новые возможности и строить устойчивое будущее.",
+                stat_1: "Направления",
+                stat_2: "Партнеров",
+                stat_3: "Довольных клиентов",
+                stat_4: "Лет опыта",
+                brief_badge: "Маленькие шаги – большие результаты",
+                brief_title: "Коротко о нас",
+                check_1: "Качественные услуги и продукция",
+                check_2: "Квалифицированная и опытная команда",
+                check_3: "Передовые технологии",
+                check_4: "Социальная ответственность и развитие",
+                read_more: "Читать далее",
+                quote_1: '"Вместе к будущему"',
+                partner_badge: "Наши партнеры",
+                partner_title: "С кем мы сотрудничаем",
+                partner_sub: "Мы сотрудничаем со многими ведущими брендами на основе доверия и качества.",
+                contact_badge: "Контакты",
+                contact_title: "Свяжитесь с нами",
+                contact_sub: "Есть вопросы? Мы всегда на связи!",
+                direct_write: "Или напишите напрямую:",
+                contact_btn: "Связаться",
+                cta_badge: "Строим будущее вместе",
+                cta_title: "К новым возможностям вместе с вами!",
+                cta_quote: '"Хорошие решения – начало больших побед."',
+                footer_motto: "Качество. Доверие. Развитие.<br>Всегда с вами.",
+                footer_quick_links: "Быстрые ссылки",
+                footer_social: "Социальные сети",
+                footer_address_title: "Адрес",
+                footer_address: "Ташкент, Узбекистан",
+                footer_copyright: "© 2026 ELBIM GROUP. Все права защищены.",
+                privacy_policy: "Политика конфиденциальности",
+                terms_use: "Условия использования"
+            },
+            en: {
+                flag: "🇬🇧",
+                code: "ENG",
+                nav_home: "Home",
+                nav_directions: "Our Sectors",
+                nav_about: "About Us",
+                nav_contact: "Contact",
+                nav_btn: "Contact Us",
+                hero_more: "Learn More",
+                dir_badge: "Our Sectors",
+                dir_title: "Business Directions",
+                dir_sub: "We contribute to improving lives through impactful projects across diverse fields.",
+                dir_all: "All Sectors",
+                card_1_title: "Textile & Production",
+                card_1_desc: "High-quality textile products backed by modern production technology.",
+                card_2_title: "Electronics & Retail",
+                card_2_desc: "Premium electronic solutions and dependable customer service.",
+                card_3_title: "Education & IT",
+                card_3_desc: "Next-generation digital solutions and contemporary education.",
+                card_btn: "Visit Website",
+                about_badge: "About Us",
+                about_title: "ELBIM GROUP – A Trusted Partner Toward Sustainable Growth",
+                about_desc: "ELBIM GROUP is a multi-sector corporate leader prioritizing excellence, innovation, and trust. Our vision is to deliver value, unlock new horizons, and construct a resilient future.",
+                stat_1: "Sectors",
+                stat_2: "Partners",
+                stat_3: "Happy Clients",
+                stat_4: "Years Experience",
+                brief_badge: "Small Steps – Big Results",
+                brief_title: "Briefly About Us",
+                check_1: "Superior products & services",
+                check_2: "Experienced professional team",
+                check_3: "Cutting-edge technologies",
+                check_4: "Social responsibility & sustainability",
+                read_more: "Read More",
+                quote_1: '"Strength together toward the future"',
+                partner_badge: "Our Partners",
+                partner_title: "Collaborating Companies",
+                partner_sub: "We partner with top global and local brands built on trust and quality.",
+                contact_badge: "Contact",
+                contact_title: "Get In Touch",
+                contact_sub: "Have questions? Our team is always here to assist you!",
+                direct_write: "Or reach us directly on:",
+                contact_btn: "Contact Now",
+                cta_badge: "Building The Future Together",
+                cta_title: "Moving Toward New Horizons Together!",
+                cta_quote: '"Great decisions mark the beginning of big achievements."',
+                footer_motto: "Quality. Trust. Growth.<br>Always by your side.",
+                footer_quick_links: "Quick Links",
+                footer_social: "Social Networks",
+                footer_address_title: "Address",
+                footer_address: "Tashkent, Uzbekistan",
+                footer_copyright: "© 2026 ELBIM GROUP. All rights reserved.",
+                privacy_policy: "Privacy Policy",
+                terms_use: "Terms of Use"
+            },
+            tr: {
+                flag: "🇹🇷",
+                code: "TURK",
+                nav_home: "Ana Sayfa",
+                nav_directions: "Faaliyet Alanlarımız",
+                nav_about: "Hakkımızda",
+                nav_contact: "İletişim",
+                nav_btn: "Bize Ulaşın",
+                hero_more: "Detaylı Bilgi",
+                dir_badge: "Sektörlerimiz",
+                dir_title: "Faaliyet Alanlarımız",
+                dir_sub: "Farklı sektörlerdeki projelerimizle insan hayatına değer katıyoruz.",
+                dir_all: "Tüm Sektörler",
+                card_1_title: "Tekstil ve Üretim",
+                card_1_desc: "Tekstil ürünleri, modern teknolojiler ve üstün kalite.",
+                card_2_title: "Elektronik ve Ticaret",
+                card_2_desc: "Kaliteli elektronik ürünler ve güvenilir hizmet.",
+                card_3_title: "Eğitim ve BT",
+                card_3_desc: "Yeni nesil için modern eğitim ve bilişim çözümleri.",
+                card_btn: "Siteye Git",
+                about_badge: "Hakkımızda",
+                about_title: "ELBIM GROUP – Sürdürülebilir Geleceğe Güvenli Ortaklık",
+                about_desc: "ELBIM GROUP, kalite ve güveni ön planda tutan çok yönlü modern bir şirkettir. Amacımız topluma değer katmak, yeni fırsatlar yaratmak ve sağlam bir gelecek inşa etmektir.",
+                stat_1: "Sektör",
+                stat_2: "Ortak",
+                stat_3: "Mutlu Müşteri",
+                stat_4: "Yıllık Tecrübe",
+                brief_badge: "Küçük adımlar – büyük sonuçlar",
+                brief_title: "Kısaca Hakkımızda",
+                check_1: "Kaliteli hizmet ve ürünler",
+                check_2: "Uzman ve deneyimli kadro",
+                check_3: "Modern teknolojiler",
+                check_4: "Sosyal sorumluluk ve sürdürülebilirlik",
+                read_more: "Devamını Oku",
+                quote_1: '"Birlikte geleceğe doğru"',
+                partner_badge: "Ortaklarımız",
+                partner_title: "Birlikte Çalıştığımız Markalar",
+                partner_sub: "Güven ve kalite temelinde lider markalarla iş birliği yapıyoruz.",
+                contact_badge: "İletişim",
+                contact_title: "Bizimle İletişime Geçin",
+                contact_sub: "Sorularınız mı var? Her zaman yanınızdayız!",
+                direct_write: "Veya doğrudan yazın:",
+                contact_btn: "İletişim",
+                cta_badge: "Geleceği Birlikte İnşa Ediyoruz",
+                cta_title: "Sizinle Yeni Fırsatlara Doğru!",
+                cta_quote: '"İyi kararlar – büyük başarıların başlangıcıdır."',
+                footer_motto: "Kalite. Güven. Gelişim.<br>Her zaman yanınızda.",
+                footer_quick_links: "Hızlı Bağlantılar",
+                footer_social: "Sosyal Medya",
+                footer_address_title: "Adres",
+                footer_address: "Taşkent, Özbekistan",
+                footer_copyright: "© 2026 ELBIM GROUP. Tüm hakları saklıdır.",
+                privacy_policy: "Gizlilik Politikası",
+                terms_use: "Kullanım Şartları"
+            }
+        };
+
+        const heroTranslations = {
+            uz: [
+                { badge: "ZAMONAVIY TEXNOLOGIYALAR", title: "ELBIM ELEKTRONIK", subtitle: "2008 yildan beri malakali xodimlari va keng ko'lamli yetkazib beruvchilar tarmog'i yordamida o'z mijozlariga sifatli mahsulotlar yetkazib berish va sifatli xizmatlar ko'rsatish bilan shug'ullanib keladi." },
+                { badge: "YANGI IMKONIYATLAR SARI ", title: "ELBIM TEXTILE TECHNOLOGY", subtitle: "zamonaviy tekstil mahsulotlari va materiallarini taklif qiluvchi kompaniya. Kompaniya erkaklar va ayollar shimlari, matolar, tekstil materiallari hamda matraslar savdosi bilan shug‘ullanadi. Sifatli mahsulot va mijozlar ehtiyojiga mos tanlovni taqdim etishga e’tibor qaratadi." },
+                { badge: "ISHONCHLI HAMKORLIK", title: "ELBIM GROUP", subtitle: "zamonaviy biznes va texnologiyalar yo‘nalishida rivojlanayotgan kompaniyalar guruhi. Guruh tarkibidagi yo‘nalishlar orqali savdo, tekstil, texnologik yechimlar va boshqa biznes xizmatlarini rivojlantirishga e’tibor qaratiladi." }
+            ],
+            ru: [
+                { badge: "К НОВЫМ ВОЗМОЖНОСТЯМ", title: "СТРОИМ БУДУЩЕЕ С ELBIM GROUP", subtitle: "Качество, доверие и развитие – наши главные ценности." },
+                { badge: "СОВРЕМЕННЫЕ ТЕХНОЛОГИИ", title: "СИНЕРГИЯ ИННОВАЦИЙ И КАЧЕСТВА", subtitle: "Мы предоставляем передовые решения в каждом направлении нашей деятельности." },
+                { badge: "НАДЕЖНОЕ ПАРТНЕРСТВО", title: "УСТОЙЧИВОЕ РАЗВИТИЕ И ДОВЕРИЕ", subtitle: "Мы стремимся к вершинам вместе с нашими клиентами и партнерами." }
+            ],
+            en: [
+                { badge: "TOWARD NEW OPPORTUNITIES", title: "BUILDING THE FUTURE WITH ELBIM GROUP", subtitle: "Quality, trust, and growth are at the core of everything we do." },
+                { badge: "MODERN TECHNOLOGIES", title: "INNOVATION MEETS UNCOMPROMISED QUALITY", subtitle: "Delivering state-of-the-art solutions across all operational sectors." },
+                { badge: "TRUSTED PARTNERSHIPS", title: "SUSTAINABLE DEVELOPMENT & INTEGRITY", subtitle: "Ascending toward excellence together with our clients and partners." }
+            ],
+            tr: [
+                { badge: "YENİ FIRSATLARA DOĞRU", title: "ELBIM GROUP İLE GELECEĞİ İNŞA EDİYORUZ", subtitle: "Kalite, güven ve gelişim – temel değerlerimizdir." },
+                { badge: "MODERN TEKNOLOJİLER", title: "İNOVASYON VE YÜKSEK KALİTE BULUŞMASI", subtitle: "Her faaliyet alanımızda en son teknolojik çözümleri sunuyoruz." },
+                { badge: "GÜVENİLİR İŞ BİRLİĞİ", title: "SÜRDÜRÜLEBİLİR GELİŞİM VE GÜVEN", subtitle: "Müşterilerimiz ve ortaklarımızla birlikte yükselmeyi hedefliyoruz." }
+            ]
+        };
+
+        let currentLang = 'uz';
+
+        function changeLanguage(langKey) {
+            if (!i18nData[langKey]) return;
+            currentLang = langKey;
+            
+            document.getElementById('current-lang-flag').innerText = i18nData[langKey].flag;
+            document.getElementById('current-lang-code').innerText = i18nData[langKey].code;
+            document.getElementById('mobile-current-lang').innerText = i18nData[langKey].code;
+
+            document.querySelectorAll('[data-i18n]').forEach(el => {
+                const key = el.getAttribute('data-i18n');
+                if (i18nData[langKey][key]) {
+                    el.innerHTML = i18nData[langKey][key];
+                }
+            });
+
+            setHeroSlide(currentHeroIndex);
+
+            document.getElementById('lang-dropdown').classList.add('hidden');
+            document.getElementById('mobile-lang-bar').classList.add('hidden');
+        }
+
+        document.getElementById('lang-menu-btn').addEventListener('click', (e) => {
+            e.stopPropagation();
+            document.getElementById('lang-dropdown').classList.toggle('hidden');
+        });
+
+        function toggleLangDropdownMobile() {
+            document.getElementById('mobile-lang-bar').classList.toggle('hidden');
+        }
+
+        document.addEventListener('click', () => {
+            document.getElementById('lang-dropdown').classList.add('hidden');
+        });
+
+        const heroBackgrounds = [
+            "./img/elbim_panel (1).jpg",
+            "./img/matral_logo2.jpg",
+            "https://images.unsplash.com/photo-1541888946425-d0fbb186a5b3?auto=format&fit=crop&q=80&w=2000"
+            
+        ];
+        let currentHeroIndex = 0;
+
+        function setHeroSlide(index) {
+            currentHeroIndex = index;
+            const slideData = heroTranslations[currentLang][currentHeroIndex];
+            
+            const bgImg = document.getElementById('hero-bg-img');
+            const badge = document.getElementById('hero-badge');
+            const title = document.getElementById('hero-title');
+            const subtitle = document.getElementById('hero-subtitle');
+
+            bgImg.style.opacity = '0';
+            title.style.opacity = '0';
+            subtitle.style.opacity = '0';
+
+            setTimeout(() => {
+                bgImg.src = heroBackgrounds[currentHeroIndex];
+                badge.innerText = slideData.badge;
+                title.innerText = slideData.title;
+                subtitle.innerText = slideData.subtitle;
+
+                bgImg.style.opacity = '0.4';
+                title.style.opacity = '1';
+                subtitle.style.opacity = '1';
+            }, 200);
+
+            const dots = document.querySelectorAll('.hero-dot');
+            dots.forEach((dot, idx) => {
+                if (idx === currentHeroIndex) {
+                    dot.className = "hero-dot w-3 h-3 rounded-full bg-elbimBlue-500 transition-all shadow-lg shadow-elbimBlue-500/50";
+                } else {
+                    dot.className = "hero-dot w-2.5 h-2.5 rounded-full bg-slate-600 hover:bg-slate-300 transition-all";
+                }
+            });
+        }
+
+        document.getElementById('hero-prev').addEventListener('click', () => {
+            currentHeroIndex = (currentHeroIndex - 1 + heroBackgrounds.length) % heroBackgrounds.length;
+            setHeroSlide(currentHeroIndex);
+        });
+
+        document.getElementById('hero-next').addEventListener('click', () => {
+            currentHeroIndex = (currentHeroIndex + 1) % heroBackgrounds.length;
+            setHeroSlide(currentHeroIndex);
+        });
+
+        const galleryImages = [
+            "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&q=80&w=1000",
+            "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&q=80&w=1000",
+            "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&q=80&w=1000"
+        ];
+        let currentGalleryIndex = 0;
+
+        function setGallerySlide(index) {
+            currentGalleryIndex = index;
+            const mainImg = document.getElementById('gallery-main-img');
+            mainImg.style.opacity = '0';
+
+            setTimeout(() => {
+                mainImg.src = galleryImages[currentGalleryIndex];
+                mainImg.style.opacity = '1';
+            }, 150);
+
+            const thumbs = document.querySelectorAll('.gallery-thumb');
+            thumbs.forEach((thumb, idx) => {
+                if (idx === currentGalleryIndex) {
+                    thumb.classList.remove('border-transparent', 'opacity-60');
+                    thumb.classList.add('border-elbimBlue-500', 'opacity-100');
+                } else {
+                    thumb.classList.remove('border-elbimBlue-500', 'opacity-100');
+                    thumb.classList.add('border-transparent', 'opacity-60');
+                }
+            });
+
+            const dots = document.querySelectorAll('.gallery-dot');
+            dots.forEach((dot, idx) => {
+                if (idx === currentGalleryIndex) {
+                    dot.className = "gallery-dot w-2.5 h-2.5 rounded-full bg-elbimBlue-500 transition-all cursor-pointer";
+                } else {
+                    dot.className = "gallery-dot w-2 h-2 rounded-full bg-slate-600 transition-all cursor-pointer";
+                }
+            });
+        }
+
+        function changeGallerySlide(direction) {
+            currentGalleryIndex = (currentGalleryIndex + direction + galleryImages.length) % galleryImages.length;
+            setGallerySlide(currentGalleryIndex);
+        }
+
+        const aboutImages = [
+            "https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&q=80&w=800",
+            "https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&q=80&w=800",
+            "./img/matral_logo2.jpg",
+            "./img/elbim_panel (1).jpg"
+        ];
+        let currentAboutIndex = 0;
+
+        function setAboutSlide(index) {
+            currentAboutIndex = index;
+            const img = document.getElementById('about-carousel-img');
+            img.style.opacity = '0';
+
+            setTimeout(() => {
+                img.src = aboutImages[currentAboutIndex];
+                img.style.opacity = '1';
+            }, 150);
+
+            const dots = document.querySelectorAll('.about-dot');
+            dots.forEach((dot, idx) => {
+                if (idx === currentAboutIndex) {
+                    dot.className = "about-dot w-2.5 h-2.5 rounded-full bg-elbimBlue-500 transition-all cursor-pointer";
+                } else {
+                    dot.className = "about-dot w-2 h-2 rounded-full bg-slate-300 transition-all cursor-pointer";
+                }
+            });
+        }
+
+        function changeAboutSlide(direction) {
+            currentAboutIndex = (currentAboutIndex + direction + aboutImages.length) % aboutImages.length;
+            setAboutSlide(currentAboutIndex);
+        }
+
+        const partnerSlides = [
+            [
+                { name: "UZTEXTILE", style: "font-black text-slate-700 tracking-wider text-base" },
+                { name: "UZBEKISTAN", style: "font-bold text-elbimBlue-500 tracking-tight text-sm" },
+                { name: "SAMSUNG", style: "font-black text-elbimDarkBlue-500 text-lg tracking-widest" },
+                { name: "hp", style: "font-bold text-slate-800 text-xl italic" },
+                { name: "Microsoft", icon: "fa-brands fa-microsoft text-sky-500", style: "font-semibold text-slate-700 text-sm flex items-center gap-1" },
+                { name: "Google", icon: "fa-brands fa-google text-red-500", style: "font-bold text-slate-700 text-lg flex items-center gap-1" }
+            ],
+            [
+                { name: "LG", style: "font-black text-red-600 text-xl tracking-wider" },
+                { name: "SONY", style: "font-black text-black text-lg tracking-widest" },
+                { name: "DELL", style: "font-bold text-elbimBlue-600 text-lg tracking-tight" },
+                { name: "LENOVO", style: "font-black text-red-700 text-base" },
+                { name: "ASUS", style: "font-bold text-elbimDarkBlue-500 text-base" },
+                { name: "APPLE", icon: "fa-brands fa-apple text-slate-800", style: "font-bold text-slate-800 text-lg flex items-center gap-1" }
+            ],
+            [
+                { name: "HUAWEI", style: "font-bold text-red-600 text-base" },
+                { name: "XIAOMI", style: "font-bold text-orange-500 text-base" },
+                { name: "CANON", style: "font-bold text-red-700 text-lg" },
+                { name: "PHILIPS", style: "font-black text-elbimBlue-600 text-base" },
+                { name: "BOSCH", style: "font-black text-slate-800 text-base" },
+                { name: "PANASONIC", style: "font-bold text-elbimDarkBlue-500 text-sm" }
+            ]
+        ];
+        let currentPartnerIndex = 0;
+
+        function setPartnerSlide(index) {
+            currentPartnerIndex = index;
+            const container = document.getElementById('partner-logos-container');
+            container.style.opacity = '0';
+
+            setTimeout(() => {
+                const partners = partnerSlides[currentPartnerIndex];
+                container.innerHTML = partners.map(p => `
+                    <div class="p-6 bg-slate-50 rounded-2xl border border-slate-100 flex items-center justify-center hover:shadow-md transition-all hover:border-elbimBlue-200">
+                        <span class="${p.style}">
+                            ${p.icon ? `<i class="${p.icon}"></i>` : ''} ${p.name}
+                        </span>
+                    </div>
+                `).join('');
+                container.style.opacity = '1';
+            }, 150);
+
+            const dots = document.querySelectorAll('.partner-dot');
+            dots.forEach((dot, idx) => {
+                if (idx === currentPartnerIndex) {
+                    dot.className = "partner-dot w-2.5 h-2.5 rounded-full bg-elbimBlue-500 transition-all cursor-pointer";
+                } else {
+                    dot.className = "partner-dot w-2 h-2 rounded-full bg-slate-300 transition-all cursor-pointer";
+                }
+            });
+        }
+
+        function openImageModal(imgSrc) {
+            const modal = document.getElementById('image-modal');
+            const modalImg = document.getElementById('modal-img-element');
+            modalImg.src = imgSrc;
+            modal.classList.remove('hidden');
+        }
+
+        function closeImageModal() {
+            document.getElementById('image-modal').classList.add('hidden');
+        }
+
+        document.getElementById('image-modal').addEventListener('click', (e) => {
+            if (e.target.id === 'image-modal') closeImageModal();
+        });
+
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+        mobileMenu.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => mobileMenu.classList.add('hidden'));
+        });
+
+        window.addEventListener('DOMContentLoaded', () => {
+            changeLanguage('uz');
+            setGallerySlide(0);
+            setAboutSlide(0);
+            setPartnerSlide(0);
+
+            setInterval(() => {
+                currentHeroIndex = (currentHeroIndex + 1) % heroBackgrounds.length;
+                setHeroSlide(currentHeroIndex);
+            }, 6000);
+
+            setInterval(() => {
+                currentGalleryIndex = (currentGalleryIndex + 1) % galleryImages.length;
+                setGallerySlide(currentGalleryIndex);
+            }, 5000);
+
+            setInterval(() => {
+                currentPartnerIndex = (currentPartnerIndex + 1) % partnerSlides.length;
+                setPartnerSlide(currentPartnerIndex);
+            }, 7000);
+        });
+    </script>
+</body>
+</html>
